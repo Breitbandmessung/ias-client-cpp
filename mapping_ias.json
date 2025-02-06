@@ -1,0 +1,263 @@
+{
+  "download_info": {
+    "type": "array",
+    "mappings": [
+      {
+        "old_key": "throughput_avg_bps",
+        "new_key": "download_rate_avg",
+        "type": "last"
+      },
+      {
+        "old_key": "bytes",
+        "new_key": "download_data",
+        "type": "last"
+      },
+      {
+        "old_key": "bytes_total",
+        "new_key": "download_data_total",
+        "type": "last"
+      },
+      {
+        "old_key": "duration_ns",
+        "new_key": "download_duration",
+        "convert": 1000000,
+        "type": "last"
+      },
+      {
+        "old_key": "duration_ns_total",
+        "new_key": "download_duration_total",
+        "convert": 1000000,
+        "type": "last"
+      },
+      {
+        "old_key": "num_streams_start",
+        "new_key": "download_streams_start",
+        "type": "last"
+      },
+      {
+        "old_key": "num_streams_end",
+        "new_key": "download_streams_end",
+        "type": "last"
+      },
+      {
+        "old_key": "bytes_distinct",
+        "old_key_divider": "duration_ns_distinct",
+        "new_key": "download_rate_min",
+        "convert": 1000000000,
+        "convert_multiplier": 8,
+        "type": "min"
+      },
+      {
+        "old_key": "bytes_distinct",
+        "old_key_divider": "duration_ns_distinct",
+        "new_key": "download_rate_max",
+        "convert": 1000000000,
+        "convert_multiplier": 8,
+        "type": "max"
+      },
+      {
+        "new_key": "download_intermediates",
+        "type": "array",
+        "mappings": [
+          {
+            "new_key": "id",
+            "type": "index"
+          },
+          {
+            "old_key": "duration_ns_distinct",
+            "new_key": "duration_distinct",
+            "convert": 1000000
+          },
+          {
+            "old_key": "bytes_distinct",
+            "new_key": "data_distinct",
+            "convert": 1
+          }
+        ]
+      }
+    ]
+  },
+  "upload_info": {
+    "type": "array",
+    "mappings": [
+      {
+        "old_key": "throughput_avg_bps",
+        "new_key": "upload_rate_avg",
+        "type": "last"
+      },
+      {
+        "old_key": "bytes",
+        "new_key": "upload_data",
+        "type": "last"
+      },
+      {
+        "old_key": "bytes_total",
+        "new_key": "upload_data_total",
+        "type": "last"
+      },
+      {
+        "old_key": "duration_ns",
+        "new_key": "upload_duration",
+        "convert": 1000000,
+        "type": "last"
+      },
+      {
+        "old_key": "duration_ns_total",
+        "new_key": "upload_duration_total",
+        "convert": 1000000,
+        "type": "last"
+      },
+      {
+        "old_key": "num_streams_start",
+        "new_key": "upload_streams_start",
+        "type": "last"
+      },
+      {
+        "old_key": "num_streams_end",
+        "new_key": "upload_streams_end",
+        "type": "last"
+      },
+      {
+        "old_key": "bytes_distinct",
+        "old_key_divider": "duration_ns_distinct",
+        "new_key": "upload_rate_min",
+        "convert": 1000000000,
+        "convert_multiplier": 8,
+        "type": "min"
+      },
+      {
+        "old_key": "bytes_distinct",
+        "old_key_divider": "duration_ns_distinct",
+        "new_key": "upload_rate_max",
+        "convert": 1000000000,
+        "convert_multiplier": 8,
+        "type": "max"
+      },
+      {
+        "new_key": "upload_intermediates",
+        "type": "array",
+        "mappings": [
+          {
+            "new_key": "id",
+            "type": "index"
+          },
+          {
+            "old_key": "duration_ns_distinct",
+            "new_key": "duration_distinct",
+            "convert": 1000000
+          },
+          {
+            "old_key": "bytes_distinct",
+            "new_key": "data_distinct",
+            "convert": 1
+          }
+        ]
+      }
+    ]
+  },
+  "rtt_udp_info": {
+    "type": "object",
+    "mappings": [
+      {
+        "old_key": "min_ns",
+        "new_key": "rtt_udp_min",
+        "convert": 1000000
+      },
+      {
+        "old_key": "average_ns",
+        "new_key": "rtt_udp_avg",
+        "convert": 1000000
+      },
+      {
+        "old_key": "max_ns",
+        "new_key": "rtt_udp_max",
+        "convert": 1000000
+      },
+      {
+        "old_key": "median_ns",
+        "new_key": "rtt_udp_med",
+        "convert": 1000000
+      },
+      {
+        "old_key": "num_sent",
+        "new_key": "rtt_udp_requests"
+      },
+      {
+        "old_key": "num_received",
+        "new_key": "rtt_udp_replies"
+      },
+      {
+        "old_key": "num_error",
+        "new_key": "rtt_udp_errors"
+      },
+      {
+        "old_key": "num_missing",
+        "new_key": "rtt_udp_missing"
+      },
+      {
+        "old_key": "packet_size",
+        "new_key": "rtt_udp_packet_size"
+      },
+      {
+        "old_key": "standard_deviation_ns",
+        "new_key": "rtt_udp_std_dev_pop",
+        "convert": 1000000
+      }
+    ]
+  },
+  "ip_info": {
+    "type": "object",
+    "mappings": [
+      {
+        "old_key": "client_ip_version",
+        "new_key": "ip_version"
+      },
+      {
+        "old_key": "client",
+        "new_key": "client"
+      },
+      {
+        "old_key": "tls_version",
+        "new_key": "ip_tls_version"
+      },
+      {
+        "old_key": "tls_cipher_suite",
+        "new_key": "ip_tls_cipher_suite"
+      },
+      {
+        "old_key": "tls_overhead",
+        "new_key": "ip_tls_overhead"
+      }
+    ]
+  },
+  "peer_info": {
+    "type": "object",
+    "mappings": [
+      {
+        "old_key": "tls",
+        "new_key": "server_tls"
+      },
+      {
+        "old_key": "port",
+        "new_key": "server_port"
+      },
+      {
+        "old_key": "url",
+        "new_key": "server"
+      }
+    ]
+  },
+  "general": {
+    "type": "object",
+    "mappings": [
+      {
+        "old_key": "error_code",
+        "new_key": "error_code"
+      },
+      {
+        "old_key": "error_description",
+        "new_key": "error_description"
+      }
+    ]
+  }
+}
